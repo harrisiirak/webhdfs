@@ -1,0 +1,27 @@
+{
+  "name": "webhdfs",
+  "version": "0.1.0",
+  "description": "Yet another WebHDFS REST API client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webhdfs",
+    "hadoop",
+    "big",
+    "data",
+    "fs",
+    "storage"
+  ],
+  "author": "Harri Siirak <harri.siirak@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "must": "~0.10.0",
+    "mocha": "~1.17.1"
+  },
+  "dependencies": {
+    "request": "~2.33.0",
+    "extend": "~1.2.1"
+  }
+}
