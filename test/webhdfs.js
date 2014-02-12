@@ -64,7 +64,31 @@ describe('WebHDFS', function () {
     });
   });
 
-  it('should open and read a file', function () {});
+  it('should open and read a file stream', function (done) {
+    var remoteFileStream = hdfs.createReadStream(path + '/file-1');
+    var spy = sinon.spy();
+    var data = [];
+
+    remoteFileStream.on('error', spy);
+    remoteFileStream.on('data', function onData (chunk) {
+      data.push(chunk);
+    });
+
+    remoteFileStream.on('finish', function () {
+      demand(spy.called).be.falsy();
+      demand(Buffer.concat(data).toString()).be.equal('random datamore random data');
+
+      done();
+    });
+  });
+
+  it('should open and read a file', function (done) {
+    hdfs.readFile(path + '/file-1', function (err, data) {
+      demand(err).be.null();
+      demand(data.toString()).be.equal('random datamore random data');
+      done();
+    });
+  });
 
   it('should change file permissions', function () {});
   it('should create symlink to file', function () {});
