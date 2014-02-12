@@ -65,7 +65,7 @@ describe('WebHDFS', function () {
   });
 
   it('should open and read a file', function () {});
-  
+
   it('should change file permissions', function () {});
   it('should create symlink to file', function () {});
   it('should rename file', function () {});
