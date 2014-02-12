@@ -116,7 +116,13 @@ describe('WebHDFS', function () {
     });
   });
 
-  it('should rename file', function () {});
+  it('should rename file', function (done) {
+    hdfs.rename(path+ '/file-2', path + '/bigfile', function (err) {
+      demand(err).be.null();
+      done();
+    });
+  });
+
   it('should stat file', function () {});
 
   it('should delete file', function (done) {
