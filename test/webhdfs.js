@@ -102,8 +102,20 @@ describe('WebHDFS', function () {
     });
   });
 
-  it('should change file permissions', function () {});
-  it('should create symlink to file', function () {});
+  it('should change file permissions', function (done) {
+    hdfs.chmod(path, '0777', function (err) {
+      demand(err).be.null();
+      done();
+    });
+  });
+
+  it('should change file owner', function (done) {
+    hdfs.chown(path, process.env.USER, 'supergroup', function (err) {
+      demand(err).be.null();
+      done();
+    });
+  });
+
   it('should rename file', function () {});
   it('should stat file', function () {});
   it('should delete file', function () {});
