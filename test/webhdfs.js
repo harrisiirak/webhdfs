@@ -21,21 +21,19 @@ describe('WebHDFS', function () {
   it('should list directory status', function () {});
 
   it('should create and write data to a file', function (done) {
-    hdfs.writeFile(path + '-1', 'random data', function () {
+    hdfs.writeFile(path + '/file-1', 'random data', function (err) {
+      demand(err).be.null();
       done();
     });
   });
 
   it('should create and stream data to a file', function (done) {
     var localFileStream = fs.createReadStream(__filename);
-    var remoteFileStream = hdfs.createWriteStream(path + '-2');
+    var remoteFileStream = hdfs.createWriteStream(path + '/file-2');
     var spy = sinon.spy();
 
     localFileStream.pipe(remoteFileStream);
     remoteFileStream.on('error', spy);
-    remoteFileStream.on('error', function (err) {
-      console.log(err);
-    });
 
     remoteFileStream.on('finish', function () {
       demand(spy.called).be.falsy();
