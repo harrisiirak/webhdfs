@@ -1,7 +1,7 @@
 {
   "name": "webhdfs",
   "version": "0.1.0",
-  "description": "Yet another WebHDFS REST API client",
+  "description": "WebHDFS REST API client",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,8 @@
     "big",
     "data",
     "fs",
-    "storage"
+    "storage",
+    "streams"
   ],
   "author": "Harri Siirak <harri.siirak@gmail.com>",
   "license": "MIT",
