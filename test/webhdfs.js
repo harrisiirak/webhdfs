@@ -118,10 +118,16 @@ describe('WebHDFS', function () {
 
   it('should rename file', function () {});
   it('should stat file', function () {});
-  it('should delete file', function () {});
 
-  it('should delete directory', function (done) {
-    hdfs.rmdir('/tmp/path', true, function (err) {
+  it('should delete file', function (done) {
+    hdfs.rmdir(path+ '/file-1', function (err) {
+      demand(err).be.null();
+      done();
+    });
+  });
+
+  it('should delete directory recursively', function (done) {
+    hdfs.rmdir(path, true, function (err) {
       demand(err).be.null();
       done();
     });
