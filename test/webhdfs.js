@@ -123,7 +123,17 @@ describe('WebHDFS', function () {
     });
   });
 
-  it('should stat file', function () {});
+  it('should stat file', function (done) {
+    hdfs.stat(path + '/bigfile', function (err, stats) {
+      demand(err).be.null();
+      demand(stats).be.object();
+
+      demand(stats.type).to.eql('FILE');
+      demand(stats.owner).to.eql(process.env.USER);
+
+      done();
+    });
+  });
 
   it('should delete file', function (done) {
     hdfs.rmdir(path+ '/file-1', function (err) {
