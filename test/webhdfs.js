@@ -135,17 +135,30 @@ describe('WebHDFS', function () {
     });
   });
 
+  it('should create symbolic link', function (done) {
+    hdfs.symlink(path+ '/bigfile', path + '/biggerfile', function (err) {
+      // Pass if server doesn't support symlinks
+      if (err.message.indexOf('Symlinks not supported') !== -1) {
+        done();
+      } else {
+        demand(err).be.null();
+        done();
+      }
+    });
+  });
+
   it('should delete file', function (done) {
     hdfs.rmdir(path+ '/file-1', function (err) {
       demand(err).be.null();
       done();
     });
   });
-
+/*
   it('should delete directory recursively', function (done) {
     hdfs.rmdir(path, true, function (err) {
       demand(err).be.null();
       done();
     });
   });
+  */
 });
