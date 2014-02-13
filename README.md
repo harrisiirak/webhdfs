@@ -1,4 +1,53 @@
 node-webhdfs
 ============
 
-WebHDFS REST API client
+Hadoop WebHDFS REST API client library for node.js with `fs` module like (asynchronous) interface.  
+
+## Examples
+
+Writing to the remote file:
+
+```javascript
+var WebHDFS = require('webhdfs');
+var hdfs = WebHDFS.createClient();
+
+var localFileStream = fs.createReadStream('/path/to/local/file');
+var remoteFileStream = hdfs.createWriteStream('/path/to/remote/file');
+
+localFileStream.pipe(remoteFileStream);
+
+remoteFileStream.on('error', function onError (err) {
+  // Do something with the error
+});
+
+remoteFileStream.on('finish', function onFinish () {
+  // Upload is done
+});
+```
+
+Reading from the remote file:
+
+```javascript
+var WebHDFS = require('webhdfs');
+var hdfs = WebHDFS.createClient();
+
+var remoteFileStream = hdfs.createReadStream('/path/to/remote/file');
+
+remoteFileStream.on('error', function onError (err) {
+  // Do something with the error
+});
+
+remoteFileStream.on('data', function onChunk (chunk) {
+  // Do something with the data chunk
+});
+
+remoteFileStream.on('finish', function onFinish () {
+  // Upload is done
+});
+```
+
+## TODO
+
+* Implement all calls (GETCONTENTSUMMARY, GETFILECHECKSUM, GETHOMEDIRECTORY, GETDELEGATIONTOKEN, RENEWDELEGATIONTOKEN, CANCELDELEGATIONTOKEN, SETREPLICATION, SETTIMES)
+* Improve documentation
+* More examples
