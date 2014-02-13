@@ -1,7 +1,7 @@
 {
   "name": "webhdfs",
   "version": "0.1.2",
-  "description": "WebHDFS REST API client",
+  "description": "Node.js WebHDFS REST API client",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec test/"
@@ -16,7 +16,7 @@
   "author": "Harri Siirak <harri.siirak@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:harrisiirak/node-webhdfs.git"
+    "url": "git+ssh://git@github.com:harrisiirak/webhdfs.git"
   },
   "license": "MIT",
   "devDependencies": {
