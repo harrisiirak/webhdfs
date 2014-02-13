@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "request": "~2.33.0",
-    "extend": "~1.2.1"
+    "extend": "~1.2.1",
+    "buffer-stream-reader": "~0.1.0"
   }
 }
