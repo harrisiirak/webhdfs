@@ -4,7 +4,7 @@
   "description": "WebHDFS REST API client",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec test/"
   },
   "keywords": [
     "webhdfs",
@@ -16,6 +16,10 @@
     "streams"
   ],
   "author": "Harri Siirak <harri.siirak@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:harrisiirak/node-webhdfs.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "must": "~0.10.0",
