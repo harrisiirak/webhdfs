@@ -1,6 +1,6 @@
 {
   "name": "webhdfs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "WebHDFS REST API client",
   "main": "index.js",
   "scripts": {
@@ -9,11 +9,9 @@
   "keywords": [
     "webhdfs",
     "hadoop",
-    "big",
-    "data",
+    "big data",
     "fs",
-    "storage",
-    "streams"
+    "storage"
   ],
   "author": "Harri Siirak <harri.siirak@gmail.com>",
   "repository": {
