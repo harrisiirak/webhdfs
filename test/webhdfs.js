@@ -1,6 +1,5 @@
 var fs = require('fs');
-var must = require('must');
-var demand = must;
+var demand = require('must');
 var sinon = require('sinon');
 
 var WebHDFS = require('../lib/webhdfs');
@@ -119,6 +118,14 @@ describe('WebHDFS', function () {
   it('should rename file', function (done) {
     hdfs.rename(path+ '/file-2', path + '/bigfile', function (err) {
       demand(err).be.null();
+      done();
+    });
+  });
+
+  it('should check file existence', function (done) {
+    hdfs.exists(path + '/bigfile', function (exists) {
+      demand(exists).be.true();
+
       done();
     });
   });
