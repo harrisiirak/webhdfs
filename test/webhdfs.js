@@ -57,6 +57,7 @@ describe('WebHDFS', function () {
 
     remoteFileStream.on('finish', function () {
       demand(spy.called).be.falsy();
+
       done();
     });
   });

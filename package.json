@@ -1,6 +1,6 @@
 {
   "name": "webhdfs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Node.js WebHDFS REST API client",
   "main": "lib/webhdfs.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "must": "~0.10.0",
+    "must": "~0.11.0",
     "mocha": "~1.17.1",
     "sinon": "~1.8.1"
   },
