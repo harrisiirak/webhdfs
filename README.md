@@ -1,7 +1,6 @@
 node-webhdfs
 ============
 
-[![Build Status](https://travis-ci.org/harrisiirak/webhdfs.png?branch=master)](https://travis-ci.org/harrisiirak/webhdfs)
 [![NPM version](https://badge.fury.io/js/webhdfs.png)](http://badge.fury.io/js/webhdfs)
 
 
