@@ -4,7 +4,7 @@ node-webhdfs
 [![NPM version](https://badge.fury.io/js/webhdfs.png)](http://badge.fury.io/js/webhdfs)
 
 
-Hadoop WebHDFS REST API client library for node.js with `fs` module like (asynchronous) interface.  
+Hadoop WebHDFS REST API (2.2.0) client library for node.js with `fs` module like (asynchronous) interface.  
 
 ## Examples
 
