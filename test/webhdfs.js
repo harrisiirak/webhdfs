@@ -14,6 +14,7 @@ describe('WebHDFS', function () {
 
   it('should make a directory', function (done) {
     hdfs.mkdir(path, function (err) {
+      console.log(err);
       demand(err).be.null();
       done();
     });
@@ -161,12 +162,11 @@ describe('WebHDFS', function () {
       done();
     });
   });
-/*
+
   it('should delete directory recursively', function (done) {
     hdfs.rmdir(path, true, function (err) {
       demand(err).be.null();
       done();
     });
   });
-  */
 });
