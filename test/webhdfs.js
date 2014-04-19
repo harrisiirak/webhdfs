@@ -14,7 +14,6 @@ describe('WebHDFS', function () {
 
   it('should make a directory', function (done) {
     hdfs.mkdir(path, function (err) {
-      console.log(err);
       demand(err).be.null();
       done();
     });
