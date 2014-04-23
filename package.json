@@ -1,6 +1,6 @@
 {
   "name": "webhdfs",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Node.js WebHDFS REST API client",
   "main": "lib/webhdfs.js",
   "scripts": {
