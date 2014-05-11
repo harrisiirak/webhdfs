@@ -32,7 +32,12 @@ Reading from the remote file:
 
 ```javascript
 var WebHDFS = require('webhdfs');
-var hdfs = WebHDFS.createClient();
+var hdfs = WebHDFS.createClient({
+  user: 'webuser',
+  host: 'localhost',
+  port: 80,
+  path: '/webhdfs/v1'
+});
 
 var remoteFileStream = hdfs.createReadStream('/path/to/remote/file');
 
