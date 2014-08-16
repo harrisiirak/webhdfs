@@ -1,6 +1,6 @@
 {
   "name": "webhdfs",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Node.js WebHDFS REST API client",
   "main": "lib/webhdfs.js",
   "scripts": {
@@ -23,8 +23,8 @@
     "mocha": "~1.21.4",
     "must": "~0.12.0",
     "sinon": "~1.10.3",
-    "webhdfs-proxy": "^0.1.1",
-    "webhdfs-proxy-memory": "^0.1.1"
+    "webhdfs-proxy": "^0.1.2",
+    "webhdfs-proxy-memory": "^0.1.2"
   },
   "dependencies": {
     "request": "~2.40.0",
