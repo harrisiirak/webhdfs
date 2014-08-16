@@ -59,3 +59,15 @@ remoteFileStream.on('finish', function onFinish () {
 * Implement all calls (GETCONTENTSUMMARY, GETFILECHECKSUM, GETHOMEDIRECTORY, GETDELEGATIONTOKEN, RENEWDELEGATIONTOKEN, CANCELDELEGATIONTOKEN, SETREPLICATION, SETTIMES)
 * Improve documentation
 * More examples
+
+# Tests
+
+Running tests:
+
+```bash
+npm test
+```
+
+# License
+
+MIT
