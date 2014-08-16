@@ -1,16 +1,32 @@
+'use strict';
+
 var fs = require('fs');
 var demand = require('must');
 var sinon = require('sinon');
 
 var WebHDFS = require('../lib/webhdfs');
+var WebHDFSProxy = require('webhdfs-proxy');
+var WebHDFSProxyMemoryStorage = require('webhdfs-proxy-memory');
 
 describe('WebHDFS', function () {
   var path = '/files/' + Math.random();
   var hdfs = WebHDFS.createClient({
-    user: process.env.USER
+    user: process.env.USER,
+    port: 45000
   });
 
   this.timeout(10000);
+
+  before(function (done) {
+    var opts = {
+      path: '/webhdfs/v1',
+      http: {
+        port: 45000
+      }
+    };
+
+    WebHDFSProxy.createServer(opts, WebHDFSProxyMemoryStorage, done);
+  });
 
   it('should make a directory', function (done) {
     hdfs.mkdir(path, function (err) {
@@ -146,7 +162,7 @@ describe('WebHDFS', function () {
   it('should create symbolic link', function (done) {
     hdfs.symlink(path+ '/bigfile', path + '/biggerfile', function (err) {
       // Pass if server doesn't support symlinks
-      if (err.message.indexOf('Symlinks not supported') !== -1) {
+      if (err && err.message.indexOf('Symlinks not supported') !== -1) {
         done();
       } else {
         demand(err).be.null();
