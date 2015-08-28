@@ -184,4 +184,58 @@ describe('WebHDFS', function () {
       done();
     });
   });
+
+  it('should support optional opts', function (done) {
+    var myOpts = {
+      "user.name": "testuser"
+    }
+    hdfs.writeFile(path + '/file-1', 'random data', myOpts, function (err) {
+      demand(err).be.null();
+      done();
+    });
+  });
+
+});
+
+describe('WebHDFS with requestParams', function() {
+  var path = '/files/' + Math.random();
+  var hdfs = WebHDFS.createClient({
+    user: process.env.USER,
+    port: 45001
+  }, {
+    headers: {
+      'X-My-Custom-Header': 'Kerberos'
+    }
+  });
+
+  this.timeout(10000);
+
+  before(function (done) {
+    var opts = {
+      path: '/webhdfs/v1',
+      http: {
+        port: 45001
+      }
+    };
+
+    WebHDFSProxy.createServer(opts, WebHDFSProxyMemoryStorage, done);
+  });
+
+  it('should override request() options', function (done) {
+    var localFileStream = fs.createReadStream(__filename);
+    var remoteFileStream = hdfs.createWriteStream(path + '/file-2');
+    var spy = sinon.spy();
+
+    localFileStream.pipe(remoteFileStream);
+    remoteFileStream.on('error', spy);
+
+    remoteFileStream.on('response', function(response) {
+      var customHeader = response.req.getHeader('X-My-Custom-Header');
+      demand(customHeader).equal('Kerberos')
+      demand(spy.called).be.falsy();
+      done();
+    })
+
+  });
+
 });
