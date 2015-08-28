@@ -231,11 +231,37 @@ describe('WebHDFS with requestParams', function() {
 
     remoteFileStream.on('response', function(response) {
       var customHeader = response.req.getHeader('X-My-Custom-Header');
-      demand(customHeader).equal('Kerberos')
+      demand(customHeader).equal('Kerberos');
       demand(spy.called).be.falsy();
       done();
     })
 
+  });
+
+  it('should pass requestParams to _sendRequest', function (done) {
+    var req = hdfs.readdir('/');
+
+    req.on('response', function(response) {
+      var customHeader = response.req.getHeader('X-My-Custom-Header');
+      demand(customHeader).equal('Kerberos');
+      done();
+    });
+  });
+
+  it('should not override explicit opts with _sendRequest', function (done) {
+    var mostSpecificParams = {
+      headers: {
+        'X-My-Custom-Header': 'Bear'
+      }
+    }
+
+    var endpoint = hdfs._getOperationEndpoint('liststatus', '/file-2');
+
+    hdfs._sendRequest('GET', endpoint, mostSpecificParams, function(err, response, body) {
+      var customHeader = response.req.getHeader('X-My-Custom-Header');
+      demand(customHeader).equal('Bear');
+      done(err)
+    });
   });
 
 });
