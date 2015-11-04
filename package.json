@@ -21,15 +21,14 @@
   "license": "MIT",
   "devDependencies": {
     "mocha": "^2.3.3",
-    "must": "~0.12.0",
-    "sinon": "~1.10.3",
+    "must": "^0.13.1",
+    "sinon": "^1.17.2",
     "webhdfs-proxy": "^0.1.2",
     "webhdfs-proxy-memory": "^0.1.2"
   },
   "dependencies": {
-    "buffer-stream-reader": "~0.1.1",
+    "buffer-stream-reader": "^0.1.1",
     "extend": "^3.0.0",
-    "mocha": "^2.3.0",
     "request": "^2.65.0"
   }
 }
