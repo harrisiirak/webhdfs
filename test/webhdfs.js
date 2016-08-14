@@ -95,6 +95,7 @@ describe('WebHDFS', function () {
       done();
     });
   });
+
   it('should open and read a file', function (done) {
     hdfs.readFile(path + '/file-1', function (err, data) {
       demand(err).be.null();
