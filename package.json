@@ -1,24 +1,63 @@
 {
-  "name": "webhdfs",
-  "version": "1.2.0",
-  "description": "Node.js WebHDFS REST API client",
-  "main": "lib/webhdfs.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec test/"
-  },
-  "keywords": [
-    "webhdfs",
-    "hadoop",
-    "big data",
-    "fs",
-    "storage"
+  "_args": [
+    [
+      {
+        "raw": "webhdfs",
+        "scope": null,
+        "escapedName": "webhdfs",
+        "name": "webhdfs",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/mnt/disk1/alpha/production/srcs/master-latest-git/3p/pkgs-linux/node/lib"
+    ]
   ],
-  "author": "Harri Siirak <harri.siirak@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/harrisiirak/webhdfs.git"
+  "_from": "webhdfs@latest",
+  "_id": "webhdfs@1.1.1",
+  "_inCache": true,
+  "_location": "/webhdfs",
+  "_nodeVersion": "6.9.1",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/webhdfs-1.1.1.tgz_1481131543337_0.12563396827317774"
   },
-  "license": "MIT",
+  "_npmUser": {
+    "name": "harrisiirak",
+    "email": "harri.siirak@gmail.com"
+  },
+  "_npmVersion": "3.10.8",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "webhdfs",
+    "scope": null,
+    "escapedName": "webhdfs",
+    "name": "webhdfs",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/webhdfs/-/webhdfs-1.1.1.tgz",
+  "_shasum": "8fb27487e0f2340aec4cc5eee55febbb7dbb12ec",
+  "_shrinkwrap": null,
+  "_spec": "webhdfs",
+  "_where": "/mnt/disk1/alpha/production/srcs/master-latest-git/3p/pkgs-linux/node/lib",
+  "author": {
+    "name": "Harri Siirak",
+    "email": "harri.siirak@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/harrisiirak/webhdfs/issues"
+  },
+  "dependencies": {
+    "buffer-stream-reader": "^0.1.1",
+    "extend": "^3.0.0",
+    "request": "^2.74.0"
+  },
+  "description": "Node.js WebHDFS REST API client",
   "devDependencies": {
     "mocha": "^2.3.3",
     "must": "^0.13.1",
@@ -26,9 +65,37 @@
     "webhdfs-proxy": "^0.1.2",
     "webhdfs-proxy-memory": "^0.1.2"
   },
-  "dependencies": {
-    "buffer-stream-reader": "^0.1.1",
-    "extend": "^3.0.0",
-    "request": "^2.74.0"
-  }
+  "directories": {},
+  "dist": {
+    "shasum": "8fb27487e0f2340aec4cc5eee55febbb7dbb12ec",
+    "tarball": "https://registry.npmjs.org/webhdfs/-/webhdfs-1.1.1.tgz"
+  },
+  "gitHead": "a9d1d12b8aa9c861e81c72b3389eaf397b962caf",
+  "homepage": "https://github.com/harrisiirak/webhdfs#readme",
+  "keywords": [
+    "webhdfs",
+    "hadoop",
+    "big data",
+    "fs",
+    "storage"
+  ],
+  "license": "MIT",
+  "main": "lib/webhdfs.js",
+  "maintainers": [
+    {
+      "name": "harrisiirak",
+      "email": "harri.siirak@gmail.com"
+    }
+  ],
+  "name": "webhdfs",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harrisiirak/webhdfs.git"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec test/"
+  },
+  "version": "1.1.1"
 }
