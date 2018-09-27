@@ -8,12 +8,10 @@ var WebHDFS = require('../lib/webhdfs');
 var WebHDFSProxy = require('webhdfs-proxy');
 var WebHDFSProxyMemoryStorage = require('webhdfs-proxy-memory');
 
-var user = require('os').userInfo().username;
-
 describe('WebHDFS', function () {
   var path = '/files/' + Math.random();
   var hdfs = WebHDFS.createClient({
-    user: user,
+    user: process.env.USER,
     port: 45000
   });
 
@@ -44,10 +42,7 @@ describe('WebHDFS', function () {
     });
   });
 
-  it('should append content to an existing file with no user', function (done) {
-    var hdfs = WebHDFS.createClient({
-      port: 45000
-    });
+  it('should append content to an existing file', function (done) {
     hdfs.appendFile(path + '/file-1', 'more random data', function (err) {
       demand(err).be.null();
       done();
@@ -131,7 +126,7 @@ describe('WebHDFS', function () {
   });
 
   it('should change file owner', function (done) {
-    hdfs.chown(path, user, 'supergroup', function (err) {
+    hdfs.chown(path, process.env.USER, 'supergroup', function (err) {
       demand(err).be.null();
       done();
     });
@@ -158,7 +153,7 @@ describe('WebHDFS', function () {
       demand(stats).be.object();
 
       demand(stats.type).to.eql('FILE');
-      demand(stats.owner).to.eql(user);
+      demand(stats.owner).to.eql(process.env.USER);
 
       done();
     });
@@ -205,7 +200,7 @@ describe('WebHDFS', function () {
 describe('WebHDFS with requestParams', function() {
   var path = '/files/' + Math.random();
   var hdfs = WebHDFS.createClient({
-    user: user,
+    user: process.env.USER,
     port: 45001
   }, {
     headers: {
